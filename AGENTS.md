@@ -65,3 +65,36 @@ Use the default triage label vocabulary. See `docs/agents/triage-labels.md`.
 This repo currently uses a single root domain context. See
 `docs/agents/domain.md`.
 
+## Cursor Cloud specific instructions
+
+This is a `uv`-managed Python 3.13 monorepo. Standard commands live in
+`README.md` and `pyproject.toml`; the notes below are the non-obvious caveats.
+
+- Installing dependencies: plain `uv sync` (the README command) only installs
+  the root `dev` group (`pytest`, `ruff`) because the root project is
+  `package = false` and has no dependencies. It does NOT install the service
+  deps (`fastmcp`, `psycopg`, `pydantic`). To get everything, use
+  `uv sync --all-packages --no-install-workspace`.
+- Do not run `uv sync --all-packages` without `--no-install-workspace`: it tries
+  to build wheels for the workspace members and fails on `mcp-app` because the
+  source dir `services/mcp-app/src/coupon_now_mcp` does not match the project
+  name `coupon-now-mcp-app` (hatchling: "Unable to determine which files to
+  ship"). Building the wheels is unnecessary anyway — see the next point.
+- Imports without installed wheels: tests resolve packages via
+  `[tool.pytest.ini_options].pythonpath` in `pyproject.toml`, so `uv run pytest`
+  works without building/installing the service packages. To run an ad-hoc
+  script against a service package, set e.g.
+  `PYTHONPATH=services/mcp-app/src` (or `services/etl/src`).
+- Lint/format: `uv run ruff check .` passes. `uv run ruff format --check .`
+  currently reports the committed source files as unformatted (pre-existing);
+  do not treat that as an environment problem.
+- Postgres (optional infra, currently unused by code): the Docker daemon is not
+  running by default — start it with `sudo dockerd &`. The committed
+  `docker compose up -d postgres` FAILS because `compose.yaml` mounts the volume
+  at the legacy path `/var/lib/postgresql/data`, which `postgres:18-alpine`
+  rejects. Workaround without editing compose: add `PGDATA=/var/lib/postgresql/data/pgdata`
+  to the container env (e.g. `docker run -e PGDATA=/var/lib/postgresql/data/pgdata ...`).
+- The MCP app has no server entrypoint yet (the package only exposes
+  `__version__`). The product is built on FastMCP; a tool call exercised via the
+  in-memory `fastmcp.Client` is the smallest end-to-end check of the stack.
+
