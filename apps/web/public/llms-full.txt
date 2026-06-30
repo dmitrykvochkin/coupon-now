@@ -2,7 +2,9 @@
 
 ## Product summary
 
-Coupon Now is a coupon search platform designed like a search engine for discounts. Users search by merchant name or coupon keyword, browse active offers, copy promo codes, and click through affiliate-supported store links.
+Coupon Now is a coupon discovery platform for shoppers and AI assistants. The site exposes crawlable merchant pages, active coupon listings, structured offer metadata, legal disclosures, and simple search routes so users can find relevant promo codes before checkout.
+
+Users can search by merchant name or coupon keyword, browse active offers, copy promo codes, and click through affiliate-supported store links.
 
 ## Site map
 
@@ -34,7 +36,7 @@ Coupon Now is a coupon search platform designed like a search engine for discoun
 
 ## SEO and structured data
 
-- Server-rendered pages with metadata, canonical URLs, OpenGraph, and Twitter cards
+- Server-rendered pages with metadata, canonical URLs, and social preview metadata
 - JSON-LD Store schema on merchant pages
 - JSON-LD Offer schema for active coupons
 - XML sitemap and robots.txt

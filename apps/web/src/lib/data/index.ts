@@ -14,7 +14,7 @@ import type {
   SearchResult,
 } from "./types";
 
-// Future FastAPI mapping:
+// Future backend API mapping:
 // GET /search?q=          -> searchCoupons
 // GET /merchants/{slug}   -> getMerchant
 // GET /coupons/latest     -> getLatestCoupons

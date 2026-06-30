@@ -1,6 +1,6 @@
 # Coupon Now
 
-Coupon Now is a search-first coupon discovery website — "Google for Coupons."
+Coupon Now is a search-first coupon discovery website for verified promo codes, merchant offers, and affiliate-supported store links.
 
 ## Local development
 
@@ -27,11 +27,11 @@ Regenerate fixtures:
 npm run generate:fixtures
 ```
 
-All pages read data through `src/lib/data/index.ts`, which is the single integration seam for a future FastAPI backend.
+All pages read data through `src/lib/data/index.ts`, which is the single integration seam for a future backend API.
 
 ## Future API integration
 
-When the FastAPI service is ready, set `NEXT_PUBLIC_API_URL` and update `src/lib/data/index.ts` to fetch from:
+When the backend API is ready, set `NEXT_PUBLIC_API_URL` and update `src/lib/data/index.ts` to fetch from:
 
 - `GET /search?q=`
 - `GET /merchants/{slug}`
@@ -45,7 +45,7 @@ Pages and components should remain unchanged.
 | Variable | Purpose |
 |----------|---------|
 | `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata, sitemap, and robots.txt |
-| `NEXT_PUBLIC_API_URL` | Future FastAPI base URL (not required for mock phase) |
+| `NEXT_PUBLIC_API_URL` | Future backend API base URL (not required for mock phase) |
 
 ## Deployment (Vercel)
 

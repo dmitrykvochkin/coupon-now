@@ -16,8 +16,8 @@ export function SiteFooter() {
           <div>
             <p className="text-lg font-semibold text-zinc-900">Coupon Now</p>
             <p className="mt-2 max-w-md text-sm text-zinc-600">
-              Google for Coupons — search merchants, discover verified promo codes, and save at
-              checkout.
+              Search merchants, discover verified promo codes, and save at checkout with
+              clear affiliate-supported store links.
             </p>
           </div>
           <nav aria-label="Footer">
