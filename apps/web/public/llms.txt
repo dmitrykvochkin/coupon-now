@@ -1,0 +1,26 @@
+# Coupon Now
+
+> Google for Coupons — search merchants, discover verified promo codes, and visit stores.
+
+## Purpose
+
+Coupon Now helps shoppers find active coupon codes and merchant promotions through search.
+
+## Primary routes
+
+- /
+- /search
+- /merchant/{slug}
+- /about
+- /contact
+- /privacy
+- /terms
+- /disclosure
+
+## Data policy
+
+Coupon and merchant content is curated for discovery. Expired offers are filtered from active listings.
+
+## Contact
+
+hello@couponnow.example

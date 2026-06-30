@@ -8,6 +8,8 @@ This repository is a Python monorepo managed with `uv`.
 
 ## Subprojects
 
+- `apps/web`: Next.js coupon search website for affiliate approval and public
+  coupon discovery.
 - `services/etl`: ingestion pipelines for coupons, affiliate links, merchant
   feeds, and provider-specific normalization.
 - `services/mcp-app`: FastMCP application that exposes coupon search tools,
@@ -38,6 +40,8 @@ setup time. The latest official patch release at setup time is Python 3.14.6.
 ```text
 .
 ├── AGENTS.md
+├── apps/
+│   └── web/
 ├── CONTEXT.md
 ├── docs/
 │   ├── adr/
