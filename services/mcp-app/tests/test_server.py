@@ -1,14 +1,14 @@
 import asyncio
+import json
 from pathlib import Path
 from typing import Any
-
-from fastmcp import Client
-from sqlmodel import Session, SQLModel, create_engine
 
 from coupon_now_mcp.config import DATABASE_URL_ENV_VAR, get_settings
 from coupon_now_mcp.server import mcp
 from coupon_now_mcp.storage.database import get_engine
 from coupon_now_mcp.storage.models import Merchant, Offer
+from fastmcp import Client
+from sqlmodel import Session, SQLModel, create_engine
 
 
 def seed_database(database_url: str) -> None:
@@ -53,8 +53,10 @@ def test_search_coupons_tool_reads_database(tmp_path: Path, monkeypatch: Any) ->
     async def call_search_tool() -> dict[str, Any]:
         async with Client(mcp) as client:
             result = await client.call_tool("search_coupons", {"merchant": "Acme"})
-            assert isinstance(result.data, dict)
-            return result.data
+            payload = result.content[0].text
+            loaded_payload = json.loads(payload)
+            assert isinstance(loaded_payload, dict)
+            return loaded_payload
 
     data = asyncio.run(call_search_tool())
 

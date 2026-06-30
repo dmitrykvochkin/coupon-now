@@ -1,7 +1,6 @@
 import pytest
-from pydantic import ValidationError
-
 from coupon_now_mcp.schemas import CouponSearchRequest
+from pydantic import ValidationError
 
 
 def test_search_request_requires_a_search_term() -> None:

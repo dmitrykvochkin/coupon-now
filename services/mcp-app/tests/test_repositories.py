@@ -1,8 +1,7 @@
-from sqlmodel import Session, SQLModel, create_engine
-
 from coupon_now_mcp.schemas import CouponSearchRequest
 from coupon_now_mcp.storage.models import Merchant, Offer
 from coupon_now_mcp.storage.repositories import CouponOfferRepository
+from sqlmodel import Session, SQLModel, create_engine
 
 
 def build_session() -> Session:

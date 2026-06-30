@@ -5,10 +5,9 @@ from __future__ import annotations
 from logging.config import fileConfig
 
 from alembic import context
-from sqlalchemy import engine_from_config, pool
-
 from coupon_now_mcp.config import get_settings
 from coupon_now_mcp.storage.models import SQLModel
+from sqlalchemy import engine_from_config, pool
 
 config = context.config
 

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import UTC, datetime
 
-from sqlmodel import Field, Relationship, SQLModel
+from sqlmodel import Field, SQLModel
 
 
 def utc_now() -> datetime:
@@ -22,8 +22,6 @@ class Merchant(SQLModel, table=True):
     website_url: str | None = Field(default=None, max_length=2048)
     created_at: datetime = Field(default_factory=utc_now, nullable=False)
     updated_at: datetime = Field(default_factory=utc_now, nullable=False)
-
-    offers: list[Offer] = Relationship(back_populates="merchant")
 
 
 class Offer(SQLModel, table=True):
@@ -44,5 +42,3 @@ class Offer(SQLModel, table=True):
     freshness_note: str | None = Field(default=None, max_length=500)
     created_at: datetime = Field(default_factory=utc_now, nullable=False)
     updated_at: datetime = Field(default_factory=utc_now, nullable=False)
-
-    merchant: Merchant = Relationship(back_populates="offers")
