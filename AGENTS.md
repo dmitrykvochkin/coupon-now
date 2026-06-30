@@ -32,7 +32,7 @@ logic.
 
 ## Python and tooling
 
-- Use Python 3.13 for new code.
+- Use Python 3.14 for new code.
 - Use `uv` for dependency management and workspace commands.
 - Use `ruff` for formatting and linting.
 - Use `pytest` for tests.
@@ -64,4 +64,3 @@ Use the default triage label vocabulary. See `docs/agents/triage-labels.md`.
 
 This repo currently uses a single root domain context. See
 `docs/agents/domain.md`.
-

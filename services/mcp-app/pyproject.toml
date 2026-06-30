@@ -2,7 +2,7 @@
 name = "coupon-now-mcp-app"
 version = "0.1.0"
 description = "FastMCP app for AI-client coupon search."
-requires-python = ">=3.13"
+requires-python = ">=3.14"
 dependencies = [
     "fastmcp>=2.0.0",
     "psycopg[binary]>=3.2.0",
@@ -12,4 +12,3 @@ dependencies = [
 [build-system]
 requires = ["hatchling>=1.26.0"]
 build-backend = "hatchling.build"
-

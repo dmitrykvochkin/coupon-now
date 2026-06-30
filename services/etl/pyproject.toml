@@ -2,7 +2,7 @@
 name = "coupon-now-etl"
 version = "0.1.0"
 description = "ETL pipelines for coupon and affiliate link ingestion."
-requires-python = ">=3.13"
+requires-python = ">=3.14"
 dependencies = [
     "psycopg[binary]>=3.2.0",
     "pydantic>=2.8.0",
@@ -11,4 +11,3 @@ dependencies = [
 [build-system]
 requires = ["hatchling>=1.26.0"]
 build-backend = "hatchling.build"
-

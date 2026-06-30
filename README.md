@@ -29,9 +29,9 @@ uv sync
 docker compose up -d postgres
 ```
 
-The repo targets Python 3.13. Python does not use an LTS label in the same way
-some ecosystems do; Python 3.13 is the latest stable bugfix branch at project
-setup time.
+The repo targets Python 3.14. Python does not use an LTS label in the same way
+some ecosystems do; Python 3.14 is the latest stable bugfix branch at project
+setup time. The latest official patch release at setup time is Python 3.14.6.
 
 ## Repo map
 
@@ -49,4 +49,3 @@ setup time.
     ├── etl/
     └── mcp-app/
 ```
-

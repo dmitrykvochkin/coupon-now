@@ -14,7 +14,7 @@ agent-friendly navigation.
 ## Decision
 
 - Use a single Python monorepo managed by `uv`.
-- Target Python 3.13 at setup time.
+- Target Python 3.14 at setup time.
 - Place the two initial subprojects under `services/etl` and
   `services/mcp-app`.
 - Use Postgres as the initial database.
@@ -28,4 +28,3 @@ agent-friendly navigation.
 - Cross-service contracts must be documented before code starts depending on
   them.
 - Adding providers or MCP tools should not require changing unrelated layers.
-
