@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "fashion",
+    "name": "Fashion & Apparel"
+  },
+  {
+    "slug": "electronics",
+    "name": "Electronics"
+  },
+  {
+    "slug": "home-garden",
+    "name": "Home & Garden"
+  },
+  {
+    "slug": "beauty",
+    "name": "Beauty & Personal Care"
+  },
+  {
+    "slug": "health",
+    "name": "Health & Wellness"
+  },
+  {
+    "slug": "food",
+    "name": "Food & Grocery"
+  },
+  {
+    "slug": "travel",
+    "name": "Travel & Hotels"
+  },
+  {
+    "slug": "sports",
+    "name": "Sports & Outdoors"
+  },
+  {
+    "slug": "toys",
+    "name": "Toys & Kids"
+  },
+  {
+    "slug": "automotive",
+    "name": "Automotive"
+  },
+  {
+    "slug": "pets",
+    "name": "Pet Supplies"
+  },
+  {
+    "slug": "office",
+    "name": "Office & Business"
+  },
+  {
+    "slug": "jewelry",
+    "name": "Jewelry & Watches"
+  },
+  {
+    "slug": "furniture",
+    "name": "Furniture"
+  },
+  {
+    "slug": "shoes",
+    "name": "Shoes"
+  },
+  {
+    "slug": "books",
+    "name": "Books & Media"
+  },
+  {
+    "slug": "software",
+    "name": "Software & SaaS"
+  },
+  {
+    "slug": "gaming",
+    "name": "Gaming"
+  },
+  {
+    "slug": "gifts",
+    "name": "Gifts & Flowers"
+  },
+  {
+    "slug": "subscription",
+    "name": "Subscriptions"
+  },
+  {
+    "slug": "education",
+    "name": "Education"
+  },
+  {
+    "slug": "finance",
+    "name": "Finance & Insurance"
+  }
+]
