@@ -2,19 +2,34 @@
 
 from __future__ import annotations
 
-import os
 from functools import lru_cache
+from pathlib import Path
 
-from pydantic import BaseModel, Field
+from pydantic import Field, field_validator
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
-DATABASE_URL_ENV_VAR = "COUPON_NOW_MCP_DATABASE_URL"
+SERVICE_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DATABASE_URL = "postgresql+psycopg://coupon_now:coupon_now@localhost:5432/coupon_now"
+DATABASE_URL_ENV_VAR = "COUPON_NOW_MCP_DATABASE_URL"
 
 
-class Settings(BaseModel):
-    """Configuration read by the MCP runtime."""
+class Settings(BaseSettings):
+    """Configuration loaded from environment variables and optional `.env` files."""
+
+    model_config = SettingsConfigDict(
+        env_prefix="COUPON_NOW_MCP_",
+        env_file=SERVICE_ROOT / ".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+        frozen=True,
+    )
 
     database_url: str = Field(default=DEFAULT_DATABASE_URL)
+
+    @field_validator("database_url", mode="after")
+    @classmethod
+    def normalize_database_url(cls, value: str) -> str:
+        return normalize_database_url(value)
 
 
 def normalize_database_url(database_url: str) -> str:
@@ -26,6 +41,5 @@ def normalize_database_url(database_url: str) -> str:
 
 @lru_cache
 def get_settings() -> Settings:
-    """Load process configuration from the environment."""
-    raw_database_url = os.getenv(DATABASE_URL_ENV_VAR, DEFAULT_DATABASE_URL)
-    return Settings(database_url=normalize_database_url(raw_database_url))
+    """Load and cache settings from environment variables and optional `.env` files."""
+    return Settings()
