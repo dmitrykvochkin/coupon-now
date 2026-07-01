@@ -34,8 +34,8 @@ export function SearchBar({
       </label>
       <div
         className={cn(
-          "flex overflow-hidden rounded-full border border-zinc-300 bg-white shadow-sm",
-          variant === "hero" && "rounded-2xl border-zinc-200 shadow-md",
+          "flex min-h-11 overflow-hidden rounded-full border border-[var(--border)] bg-[var(--card)] shadow-sm",
+          variant === "hero" && "rounded-2xl",
         )}
       >
         <input
@@ -45,14 +45,14 @@ export function SearchBar({
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search merchants or coupon codes"
           className={cn(
-            "min-w-0 flex-1 px-4 py-3 text-base text-zinc-900 outline-none placeholder:text-zinc-400",
+            "min-w-0 flex-1 px-4 py-3 text-base text-[var(--foreground)] outline-none placeholder:text-[var(--muted-foreground)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ring)]",
             variant === "hero" && "px-6 py-4 text-lg",
           )}
         />
         <button
           type="submit"
           className={cn(
-            "bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700",
+            "min-h-11 bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-[var(--primary-foreground)] transition hover:bg-[#c63f00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)]",
             variant === "hero" && "px-8 py-4 text-base",
           )}
         >

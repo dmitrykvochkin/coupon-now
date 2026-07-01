@@ -23,7 +23,7 @@ export function CopyCodeButton({ code }: CopyCodeButtonProps) {
     <button
       type="button"
       onClick={handleCopy}
-      className="rounded-md border border-emerald-600 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-800 transition hover:bg-emerald-100"
+      className="min-h-11 rounded-md border border-[var(--primary)] bg-[var(--secondary)] px-3 py-1.5 text-sm font-medium text-[var(--secondary-foreground)] transition hover:bg-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)]"
       aria-label={`Copy coupon code ${code}`}
     >
       {copied ? "Copied!" : "Copy code"}
