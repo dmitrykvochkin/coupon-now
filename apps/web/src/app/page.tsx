@@ -115,7 +115,7 @@ export default async function HomePage() {
               </Badge>
               <h1 className="mt-4 max-w-4xl text-5xl font-semibold tracking-tight text-foreground md:text-6xl">
                 Find{" "}
-                <AnimatedGradientText colorFrom="#f54e00" colorTo="#fdba74" speed={0.8}>
+                <AnimatedGradientText colorFrom="#f54e00" colorTo="#431407" speed={0.8}>
                   verified coupon codes
                 </AnimatedGradientText>{" "}
                 before checkout.

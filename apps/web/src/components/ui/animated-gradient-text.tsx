@@ -23,10 +23,13 @@ export function AnimatedGradientText({
           "--bg-size": `${speed * 300}%`,
           "--color-from": colorFrom,
           "--color-to": colorTo,
+          backgroundImage:
+            "linear-gradient(90deg, var(--color-from), var(--color-to), var(--color-from))",
+          backgroundSize: "var(--bg-size) 100%",
         } as React.CSSProperties
       }
       className={cn(
-        `animate-gradient inline bg-linear-to-r from-(--color-from) via-(--color-to) to-(--color-from) bg-size-[var(--bg-size)_100%] bg-clip-text text-transparent`,
+        "animate-gradient inline bg-clip-text text-transparent",
         className
       )}
       {...props}
