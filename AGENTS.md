@@ -52,6 +52,11 @@ logic.
 
 ## Agent skills
 
+### Frontend design
+
+Follow `docs/agents/frontend-design-guidelines.md` before generating or editing
+UI in `apps/web`.
+
 ### Issue tracker
 
 Issues and PRDs are tracked in GitHub Issues. See `docs/agents/issue-tracker.md`.
