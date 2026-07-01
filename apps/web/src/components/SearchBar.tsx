@@ -1,7 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FormEvent, useId, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
 interface SearchBarProps {
@@ -17,6 +19,7 @@ export function SearchBar({
 }: SearchBarProps) {
   const router = useRouter();
   const [query, setQuery] = useState(defaultValue);
+  const inputId = useId();
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -29,35 +32,36 @@ export function SearchBar({
 
   return (
     <form onSubmit={handleSubmit} className={cn("w-full", className)} role="search">
-      <label htmlFor="coupon-search" className="sr-only">
+      <label htmlFor={inputId} className="sr-only">
         Search merchants and coupon codes
       </label>
       <div
         className={cn(
-          "flex min-h-11 overflow-hidden rounded-full border border-[var(--border)] bg-[var(--card)] shadow-sm",
+          "flex min-h-11 overflow-hidden rounded-full border border-border bg-card shadow-sm",
           variant === "hero" && "rounded-2xl",
         )}
       >
-        <input
-          id="coupon-search"
+        <Input
+          id={inputId}
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search merchants or coupon codes"
           className={cn(
-            "min-w-0 flex-1 px-4 py-3 text-base text-[var(--foreground)] outline-none placeholder:text-[var(--muted-foreground)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ring)]",
-            variant === "hero" && "px-6 py-4 text-lg",
+            "h-11 min-w-0 flex-1 rounded-none border-0 bg-transparent px-4 py-3 text-base shadow-none focus-visible:ring-0",
+            variant === "hero" && "h-14 px-6 py-4 text-lg",
           )}
         />
-        <button
+        <Button
           type="submit"
+          size="lg"
           className={cn(
-            "min-h-11 bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-[var(--primary-foreground)] transition hover:bg-[#c63f00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)]",
-            variant === "hero" && "px-8 py-4 text-base",
+            "h-auto min-h-11 rounded-none px-5 py-3 text-sm font-semibold",
+            variant === "hero" && "min-h-14 px-8 py-4 text-base",
           )}
         >
           Search
-        </button>
+        </Button>
       </div>
     </form>
   );

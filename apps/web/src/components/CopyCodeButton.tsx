@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface CopyCodeButtonProps {
   code: string;
@@ -20,13 +21,14 @@ export function CopyCodeButton({ code }: CopyCodeButtonProps) {
   }
 
   return (
-    <button
+    <Button
       type="button"
+      variant="secondary"
       onClick={handleCopy}
-      className="min-h-11 rounded-md border border-[var(--primary)] bg-[var(--secondary)] px-3 py-1.5 text-sm font-medium text-[var(--secondary-foreground)] transition hover:bg-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)]"
+      className="min-h-11 border border-primary px-3 py-1.5"
       aria-label={`Copy coupon code ${code}`}
     >
       {copied ? "Copied!" : "Copy code"}
-    </button>
+    </Button>
   );
 }
